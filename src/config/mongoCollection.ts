@@ -19,3 +19,5 @@ const getCollectionFn = (collection: string): (() => Promise<Collection>) => {
 };
 
 export const users = getCollectionFn("users");
+export const matches = getCollectionFn("matches");
+export const tournaments = getCollectionFn("tournaments");

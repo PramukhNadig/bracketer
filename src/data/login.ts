@@ -5,7 +5,7 @@ import { } from 'mongoose';
 import { cp } from 'fs';
 
 
-async function createLogin(username: string, password: string) {
+export async function createLogin(username: string, password: string) {
     const salt = await genSalt(10)
     password = await hash(password, salt).then(response => {
         if (response === undefined || response === null) {
@@ -25,7 +25,7 @@ async function createLogin(username: string, password: string) {
     return newUser;
 }
 
-async function login(username: string, password: string) {
+export async function login(username: string, password: string) {
     const userCollection = await users();
     const user = await userCollection.findOne({ username: username });
     if (user === null) throw 'User not found';
@@ -36,4 +36,4 @@ async function login(username: string, password: string) {
     }
 }
 
-export default createLogin
+

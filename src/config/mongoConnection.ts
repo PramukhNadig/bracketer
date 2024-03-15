@@ -10,7 +10,7 @@ let _db: Db | undefined;
 
 export const dbConnection = async () => {
     if (!_connection) {
-        _connection = await MongoClient.connect(mongoConfig.serverUrl, { useUnifiedTopology: true } as MongoClientOptions);
+        _connection = await MongoClient.connect(mongoConfig.serverUrl);
         _db = _connection.db(mongoConfig.database);
     }
     return _db;
